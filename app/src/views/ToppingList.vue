@@ -1,15 +1,13 @@
 <template>
-    <div class="topping">
-        <h2>Choose Toppings</h2>
-        <Toppings v-for="topping in toppings" :key="topping.name"/>
-        <button>Add Topping</button>
+    <div class="container">
+        <Toppings v-for="topping in toppinglist" :key="topping.name" :topping="topping"/>
     </div>
 </template>
 
 <script setup>
 import { ref } from 'vue';
 import Toppings from '@/components/Toppings.vue';
-const toppings = [
+const toppinglist = ref([
     {name: 'Pepperoni',type: 'meat'},
     {name: 'Italian Sausage',type: 'meat'},
     {name: 'BBQ Chicken',type: 'meat'},
@@ -22,7 +20,7 @@ const toppings = [
     {name: "Red Bell Peppers",type: 'vegetable'},
     {name: 'Olives',type: 'vegetable'},
     {name: 'Jalapenos',type: 'vegetable'},
-]
+])
 </script>
 
 <style scoped>
