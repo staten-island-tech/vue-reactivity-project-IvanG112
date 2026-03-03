@@ -1,12 +1,15 @@
 <template>
-    <div class = "base">
-
+<div class="pizza">
+    <div class="base">
+        <img src="/pizzabase.png" alt="Pizza">
     </div>
-    <div class="container">
+    <div class="toppingList">
         <Toppings v-for="topping in toppinglist" :key="topping.name" :topping="topping">
             <button>Add To Pizza</button>
         </Toppings>
     </div>
+</div>
+    
 </template>
 
 <script setup>
@@ -25,13 +28,14 @@ const toppinglist = ref([
     {name: 'Olives',type: 'vegetable',price: 1.50},
     {name: 'Jalapenos',type: 'vegetable',price: 1.50},
 ])
+
 </script>
 
 <style scoped>
-.container{
+.toppingList {
     display: flex;
     flex-wrap: wrap;
-    width: 100%;
+    width: 60%;
     justify-content: flex-end;    
     
 }
@@ -40,5 +44,9 @@ button {
     margin-bottom: 20px;
     padding: 5px;
     width: 100px;
+}
+img {
+    width: 400px;
+    height: 400px;
 }
 </style>
