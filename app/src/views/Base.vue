@@ -1,15 +1,19 @@
 <template>
     <div>
-        <h1><router-link to="/pizza">Make a Pizza!</router-link></h1>
-        <h2>Get Started</h2>
+        <h1>Make a Pizza!</h1>
+        <h2 @click="goToppings" class="clickable">Get Started</h2>
     </div>
 </template>
 
 <script>
-import { useRouter } from 'vue-router';
-const router = useRouter();
-const gotoToppings = () => {
-    router.push('/toppinglist');
+export default {
+  methods: {
+    goToppings() {
+      // `this.$router` is injected by vue-router
+      this.$router.push({ name: 'ToppingList' });
+      // or: this.$router.push('/toppinglist')
+    }
+  }
 }
 </script>
 
