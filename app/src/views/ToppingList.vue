@@ -5,7 +5,7 @@
                 <img src="/pizzabase.png" alt="PizzaBase">
                 <img src="/sauceandcheese.png" alt="PizzaSauceandCheese">
                 <div class="selectedToppings">
-                    <span v-for="topping in selectedToppings" :key="topping.name" class="topping-badge">
+                    <span v-for="topping in selectedToppings" :key="topping.id" class="topping-badge">
                         {{ topping.name }}
                     </span>
                 </div>
@@ -46,10 +46,7 @@ const toppinglist = reactive([
 const selectedToppings = reactive([])
 
 function addTopping(topping) {
-    // Check if topping is already added
-    if (!selectedToppings.find(t => t.name === topping.name)) {
-        selectedToppings.push(topping)
-    }
+    selectedToppings.push({ ...topping, id: Date.now() + Math.random() })
 }
 
 function clearToppings() {
